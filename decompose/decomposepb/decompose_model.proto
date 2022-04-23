@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package decompose;
+option go_package = "github.com/vitorgraciani/grpc-go-aula-2/decompose/decomposepb";
+
+message DecomposeRequest{
+    int32 firstNumer = 1;
+}
+
+message DecomposeResponse {
+    int32 result = 1;
+}

@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package decompose;
+option go_package = "github.com/vitorgraciani/grpc-go-aula-2/decompose/decomposepb";
+
+import "decompose/decomposepb/message.proto";
+
+service DecomposeService{
+    rpc PrimeNumberDecompose(DecomposeRequest) returns (stream DecomposeResponse){};
+}

@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+
+package calculatorpb;
+
+option go_package = "github.com/vitorgraciani/grpc-go-aula-2/calculator/calculatorpb";
+
+message CalculatorRequest {
+    int32 elem = 1;
+}
+
+message CalculatorResponse {
+    double result = 1;
+}
+
+message CalcRequest {
+    int32 first =1;
+    int32 second =2;
+}
+
+message CalcResponse {
+    int32 result = 1;
+}
+
+message MaxRequest {
+    int32 number = 1;
+}
+
+message MaxResponse {
+    int32 result =1;
+}
+
+service CalculatorService {
+    rpc Sum(CalcRequest) returns (CalcResponse);
+    rpc ComputeAverage(stream CalculatorRequest) returns (CalculatorResponse);
+    rpc Max(stream MaxRequest) returns (stream MaxResponse);
+}
